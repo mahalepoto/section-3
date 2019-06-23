@@ -23,8 +23,8 @@ statements, even before executind the code.*/
 
 // calcAg(1982); // Moving function call up to test Hoisting
 
-calcAge(2008); // Mving call from live 35 to test function expression Hoisting
-// throws error of 'script.js:26 Uncaught ReferenceError: calcAge is not defined'.
+age(2008); // Mving call from live 35 to test function expression Hoisting
+// throws error of 'Uncaught TypeError: age is not a function.
 
 /*
 Now it throws error as in function expression only variable are stored not their values.
@@ -40,7 +40,7 @@ var age = function calcAge(birthYear) {
 }
 
 // function expression call
-// calcAg(2008); // Moving this call to upward to test Hoisting
+//age(2008); // Moving this call to upward to test Hoisting
 
 
 
