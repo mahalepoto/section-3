@@ -56,23 +56,11 @@ given value of undefine.
 Varaibles will only get their actual given values when code is executed.*/
 
 // Example
-console.log(life);
+// console.log(life);
 // As seen in Dev tools, it shows output of undefined
 
-var life = 30;
+// var life = 30;
 // console.log(life); Lets more console.log(life); upward to test Hoisting.
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -82,44 +70,64 @@ var life = 30;
 
 // First scoping example
 
-/*
+/* ** How does Scoping work ! **
+The outer most envoirment is called global execution context, where a = 0,
+2nd envoiment or execution context is created by function call first(),
+which has access to scoping of its variables and its parent envoiment which
+is global context.
+when second() function call is made it creates execution stack of
+child envoiment under function first(),
+this second() has access to its own variable scopes, its parent's and global's.
+So scoping works from bottom up, from within to upward.*/
+
+
+// ** Laxical Scoping. **
 var a = 'Hello!';
-first();
+first();        // This is global scope where we have only access to
+                // variable a = 'Hello'!
 
 function first() {
     var b = 'Hi!';
-    second();
+    second();       // function first() 've access to its variables and global scopes
+                    // where a = 'Hello!'
 
     function second() {
         var c = 'Hey!';
-        console.log(a + b + c);
+        console.log(a + b + c); // function second 've access to its variable &
+                                // function first() variable and global scope where
+                                // a = 'Hello'
     }
 }
-*/
 
 
 
-// Example to show the differece between execution stack and scope chain
 
-/*
-var a = 'Hello!';
+
+//Example to show the differece between execution stack and scope chain
+
+
+var a = 'Hello!'; // execution context or global scope
 first();
 
 function first() {
     var b = 'Hi!';
-    second();
+    second(); // function first() has access to var b,function call second(),
+              // function call first() and variable a.
 
     function second() {
         var c = 'Hey!';
-        third()
+        third(); // function second() has access to var c,b and a. function call third(),
+                 //  second() and first().
     }
 }
 
 function third() {
     var d = 'John';
-    console.log(a + b + c + d);
+    console.log(a + b + c + d); // function third has access to variable d and a only
+                                // because of different execution context it exists.
+                                // it does have access to global scope.
 }
-*/
+
 
 
 
